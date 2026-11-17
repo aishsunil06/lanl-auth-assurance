@@ -1,0 +1,264 @@
+{
+  "setup": {
+    "hops": 4246513,
+    "redteam_hops": 508,
+    "train_days": [
+      1,
+      15
+    ],
+    "test_days": [
+      16,
+      30
+    ],
+    "clean_days": [
+      31,
+      58
+    ],
+    "train": {
+      "hops": 1087945,
+      "redteam": 449
+    },
+    "test": {
+      "hops": 1051442,
+      "redteam": 59
+    },
+    "clean": {
+      "hops": 2107126,
+      "redteam": 0
+    },
+    "test_base_rate": 5.6113413768900236e-05
+  },
+  "E2_temporal": {
+    "roc_auc": 0.34948,
+    "average_precision": 0.000234,
+    "alert_budgets": {
+      "10": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positives": 0
+      },
+      "50": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positives": 0
+      },
+      "100": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positives": 0
+      },
+      "500": {
+        "precision": 0.002,
+        "recall": 0.01695,
+        "true_positives": 1
+      },
+      "1000": {
+        "precision": 0.001,
+        "recall": 0.01695,
+        "true_positives": 1
+      }
+    }
+  },
+  "E2_temporal_sweep": {
+    "train_1-12_test_13-15": {
+      "train_redteam": 231,
+      "test_redteam": 218,
+      "roc_auc": 0.50281,
+      "average_precision": 0.000757
+    },
+    "train_1-10_test_11-15": {
+      "train_redteam": 231,
+      "test_redteam": 218,
+      "roc_auc": 0.50438,
+      "average_precision": 0.000593
+    },
+    "train_1-8_test_9-13": {
+      "train_redteam": 29,
+      "test_redteam": 344,
+      "roc_auc": 0.51273,
+      "average_precision": 0.001218
+    },
+    "train_1-15_test_16-30": {
+      "train_redteam": 449,
+      "test_redteam": 59,
+      "roc_auc": 0.34948,
+      "average_precision": 0.000234
+    }
+  },
+  "E2_random_split": {
+    "roc_auc": 0.97373,
+    "average_precision": 0.449288,
+    "alert_budgets": {
+      "10": {
+        "precision": 0.7,
+        "recall": 0.03043,
+        "true_positives": 7
+      },
+      "50": {
+        "precision": 0.76,
+        "recall": 0.16522,
+        "true_positives": 38
+      },
+      "100": {
+        "precision": 0.62,
+        "recall": 0.26957,
+        "true_positives": 62
+      },
+      "500": {
+        "precision": 0.366,
+        "recall": 0.79565,
+        "true_positives": 183
+      },
+      "1000": {
+        "precision": 0.209,
+        "recall": 0.9087,
+        "true_positives": 209
+      }
+    },
+    "entity_overlap": {
+      "test_attack_hops": 230,
+      "share_user_with_train_attack": 0.8957,
+      "share_host_pair_with_train_attack": 0.4435
+    }
+  },
+  "E2_clean_period": {
+    "threshold": 0.984147,
+    "alerts": 300,
+    "hops": 2107126,
+    "alerts_per_day": 10.7
+  },
+  "E1_with_source_identity": {
+    "roc_auc": 0.98304,
+    "average_precision": 0.723689,
+    "alert_budgets": {
+      "10": {
+        "precision": 0.9,
+        "recall": 0.15254,
+        "true_positives": 9
+      },
+      "50": {
+        "precision": 0.7,
+        "recall": 0.59322,
+        "true_positives": 35
+      },
+      "100": {
+        "precision": 0.55,
+        "recall": 0.9322,
+        "true_positives": 55
+      },
+      "500": {
+        "precision": 0.116,
+        "recall": 0.98305,
+        "true_positives": 58
+      },
+      "1000": {
+        "precision": 0.058,
+        "recall": 0.98305,
+        "true_positives": 58
+      }
+    }
+  },
+  "E1_held_out_attacker_host": {
+    "dominant_host": "C17693",
+    "redteam_hops_from_dominant": 489,
+    "redteam_hops_from_others": 19,
+    "distinct_attacker_hosts": 4,
+    "dominant_share": 0.9626,
+    "holdout_distinct_users": 1,
+    "holdout_distinct_source_hosts": 1,
+    "interpretation": "Underpowered. Every held-out positive comes from one user on one host, so the effective sample size is a single intrusion path and neither outcome is evidence of generalisation. The benchmark cannot separate a detector that learned behaviour from one that learned an address.",
+    "models": {
+      "with_source_identity": {
+        "roc_auc": 0.99994,
+        "held_out_positives": 7,
+        "recall_at_100": 1.0,
+        "true_positives_at_100": 7
+      },
+      "behavioural_only": {
+        "roc_auc": 0.49848,
+        "held_out_positives": 7,
+        "recall_at_100": 0.0,
+        "true_positives_at_100": 0
+      }
+    }
+  },
+  "E3_adaptive_adversary": {
+    "unmodified": {
+      "mean_score": 0.88103,
+      "100": {
+        "recall": 0.3,
+        "true_positives": 69
+      },
+      "1000": {
+        "recall": 0.9087,
+        "true_positives": 209
+      }
+    },
+    "business_hours": {
+      "mean_score": 0.88551,
+      "100": {
+        "recall": 0.3,
+        "true_positives": 69
+      },
+      "1000": {
+        "recall": 0.90435,
+        "true_positives": 208
+      }
+    },
+    "familiar_destination": {
+      "mean_score": 0.87981,
+      "100": {
+        "recall": 0.15217,
+        "true_positives": 35
+      },
+      "1000": {
+        "recall": 0.90435,
+        "true_positives": 208
+      }
+    },
+    "familiar_source_path": {
+      "mean_score": 0.71059,
+      "100": {
+        "recall": 0.33478,
+        "true_positives": 77
+      },
+      "1000": {
+        "recall": 0.70435,
+        "true_positives": 162
+      }
+    },
+    "no_failed_attempts": {
+      "mean_score": 0.88103,
+      "100": {
+        "recall": 0.3,
+        "true_positives": 69
+      },
+      "1000": {
+        "recall": 0.9087,
+        "true_positives": 209
+      }
+    },
+    "blend_into_volume": {
+      "mean_score": 0.0559,
+      "100": {
+        "recall": 0.0,
+        "true_positives": 0
+      },
+      "1000": {
+        "recall": 0.02609,
+        "true_positives": 6
+      }
+    },
+    "combined": {
+      "mean_score": 0.05499,
+      "100": {
+        "recall": 0.0,
+        "true_positives": 0
+      },
+      "1000": {
+        "recall": 0.02609,
+        "true_positives": 6
+      }
+    }
+  }
+}
